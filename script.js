@@ -11,6 +11,17 @@ el.addEventListener("click", function() {
       x++
     }
   }
+
+  //check if matrix is empty
+  for (let i = 0; i < 3; ++i) {
+    for (let j = 0; j < 3; ++j) {
+      if (c[i][j] == '') {
+        alert("Fill the entire matrix!")
+        return
+      }
+    }
+  }
+
   var f = Array(3).fill().map(()=>Array(3).fill())
   
   for (let i = 0; i < 3; ++i) {
@@ -33,8 +44,6 @@ el.addEventListener("click", function() {
       r[i][j] = prod(q, i, c, j)
     }
   }
-
-  console.log(r);
 });
 
 function frct(c, cind, f, find, times) {
