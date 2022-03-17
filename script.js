@@ -28,7 +28,7 @@ for (let i = 0; i < 3; ++i) {
     r[i][j] = prod(q, i, c, j)
   }
 }
-
+// wait ht
 function frct(c, cind, f, find, times) {
   sum = 0
   for (let i = 0; i < times; ++i) {
