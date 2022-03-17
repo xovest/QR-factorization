@@ -11,17 +11,21 @@
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
-.matrix {
-  display: grid;
-  grid-template-columns: repeat(3, 40px);
-  size: 4;
+.outputmat {
+  display: flex;
+  flex-direction: row;
+  font-size: 2rem;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 .matrix {
+  display: grid;
+  grid-template-columns: repeat(3, 40px);
   position: relative;
   margin-left: 5px;
   margin-right: 10px;
 }
+
 .matrix:before, .matrix:after {
   content: "";
   position: absolute;
