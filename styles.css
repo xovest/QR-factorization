@@ -3,3 +3,16 @@
   align-items: center;
   justify-content: center ;
 }
+
+.inputmat {
+  display: flex;
+  flex-direction: row;
+  font-size: 3rem;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.matrix {
+  display: grid;
+  grid-template-columns: repeat(3, 40px);
+  size: 4;
+}

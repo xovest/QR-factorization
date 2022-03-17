@@ -1,33 +1,41 @@
 // just creating the matrix
 var c = Array(3).fill().map(()=>Array(3).fill())
-c = [
-  [1, 1, 4], // 00 01 02
-  [1, 2, 3], // 10 11 12
-  [1, 1, 6] //  20 21 22
-]
 
-var f = Array(3).fill().map(()=>Array(3).fill())
-
-for (let i = 0; i < 3; ++i) {
-  for (let j = 0; j < 3; ++j) {
-    f[j][i] = c[j][i];
-    f[j][i] -= frct(c, i, f, j, i)
+const el = document.querySelector("body > div.inputmat > button")
+el.addEventListener("click", function() {
+  let x = 1
+  for (let i = 0; i < 3; ++i) {
+    for (let j = 0; j < 3; ++j) {
+      let x1 = document.querySelector(`body > div.inputmat > div > input[type=number]:nth-child(${x})`).value
+      c[i][j] = x1
+      x++
+    }
   }
-}
-
-var q = Array(3).fill().map(()=>Array(3).fill())
-for (let i = 0; i < 3; ++i) {
-  for (let j = 0; j < 3; ++j) {
-    q[j][i] = 1 / norm(f, i) * f[j][i]
+  var f = Array(3).fill().map(()=>Array(3).fill())
+  
+  for (let i = 0; i < 3; ++i) {
+    for (let j = 0; j < 3; ++j) {
+      f[j][i] = c[j][i];
+      f[j][i] -= frct(c, i, f, j, i)
+    }
   }
-}
-
-var r = Array(3).fill().map(()=>Array(3).fill())
-for (let i = 0; i < 3; ++i) {
-  for (let j = 0; j < 3; ++j) {
-    r[i][j] = prod(q, i, c, j)
+  
+  var q = Array(3).fill().map(()=>Array(3).fill())
+  for (let i = 0; i < 3; ++i) {
+    for (let j = 0; j < 3; ++j) {
+      q[j][i] = 1 / norm(f, i) * f[j][i]
+    }
   }
-}
+  
+  var r = Array(3).fill().map(()=>Array(3).fill())
+  for (let i = 0; i < 3; ++i) {
+    for (let j = 0; j < 3; ++j) {
+      r[i][j] = prod(q, i, c, j)
+    }
+  }
+
+  console.log(r);
+});
 
 function frct(c, cind, f, find, times) {
   sum = 0
